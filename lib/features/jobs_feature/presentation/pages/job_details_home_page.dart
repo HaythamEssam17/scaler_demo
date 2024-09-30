@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scalers_demo/core/app/app_scaffold_page.dart';
+import 'package:scalers_demo/core/constants/app_colors.dart';
+import 'package:scalers_demo/core/constants/app_constants.dart';
 import 'package:scalers_demo/core/constants/asset_paths/icon_path.dart';
 import 'package:scalers_demo/core/factories/circular_indicator_factory.dart';
 import 'package:scalers_demo/core/features/bottom_nav/presentation/logic/Bottom_Nav_Cubit/bottom_nav_cubit.dart';
+import 'package:scalers_demo/core/helpers/shared.dart';
 import 'package:scalers_demo/core/presentation/routes/route_argument_model.dart';
 import 'package:scalers_demo/core/presentation/widgets/Images/common_asset_svg_image_widget.dart';
 import 'package:scalers_demo/core/presentation/widgets/common_app_bar_widget.dart';
 import 'package:scalers_demo/core/presentation/widgets/common_error_widget.dart';
+import 'package:scalers_demo/core/presentation/widgets/common_global_button.dart';
 import 'package:scalers_demo/features/jobs_feature/presentation/cubit/job_details_cubit/jobs_details_cubit.dart';
 import 'package:scalers_demo/features/jobs_feature/presentation/cubit/job_details_cubit/jobs_details_state.dart';
 import 'package:scalers_demo/features/jobs_feature/presentation/widgets/job_details_item.dart';
@@ -62,6 +66,19 @@ class _JobDetailsHomePageState extends State<JobDetailsHomePage> {
           return JobDetailsItem(jobModel: context.read<JobDetailsCubit>().jobModel);
         },
         listener: (context, state) {},
+      ),
+      bottomNavigationBar: Container(
+        height: getWidgetHeight(80),
+        padding: const EdgeInsets.symmetric(horizontal: AppConstants.padding16, vertical: AppConstants.padding8),
+        child: Center(
+          child: CommonGlobalButton(
+            buttonText: 'Apply',
+            onPressedFunction: () {},
+            height: 44,
+            radius: AppConstants.borderRadius8,
+            buttonBackgroundColor: AppColors.mainColor,
+          ),
+        ),
       ),
     );
   }
